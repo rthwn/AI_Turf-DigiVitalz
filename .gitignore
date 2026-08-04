@@ -1,0 +1,16 @@
+.env
+*.db
+reports/
+__pycache__/
+.next/
+node_modules/
+venv/
+*.pycfrontend/.next/
+test_*.py
+check_*.py
+introspect.py
+all_changes_full.txt
+all_changes_summary.txt
+celerybeat-schedule.*
+*.db
+celerybeat-schedule.dat

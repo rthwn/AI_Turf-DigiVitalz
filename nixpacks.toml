@@ -1,0 +1,39 @@
+[phases.setup]
+nixPkgs = [
+     "python312",
+  "python312Packages.pip",
+    "python312Packages.virtualenv",
+  "nodejs_20",
+  "chromium",
+  "chromedriver",
+  "glib",
+  "nss",
+  "nspr",
+  "dbus",
+  "atk",
+  "cups",
+  "libdrm",
+  "xorg.libxcb",
+  "xorg.libX11",
+  "xorg.libXcomposite",
+  "xorg.libXdamage",
+  "xorg.libXext",
+  "xorg.libXfixes",
+  "xorg.libXrandr",
+  "mesa",
+  "expat",
+  "libxkbcommon",
+  "cairo",
+  "pango",
+  "alsa-lib",
+]
+
+[phases.install]
+cmds = [
+  "python -m venv /opt/venv",
+  ". /opt/venv/bin/activate && pip install --upgrade pip",
+  ". /opt/venv/bin/activate && pip install -r requirements.txt"
+]
+
+[start]
+cmd = ". /opt/venv/bin/activate && uvicorn backend.app.main:app --host 0.0.0.0 --port $PORT"
